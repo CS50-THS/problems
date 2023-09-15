@@ -1,7 +1,7 @@
 check50:
   files: &check50_files
     - !exclude "*"
-    - !include "*"
+    - !include "jar.py"
 
 submit50:
   files: *check50_files
