@@ -18,7 +18,7 @@ def compiles():
 def test0():
     """input of cold brew and hot dog yields output of $8.00"""
     check50.run("./snackbar").stdin(
-        "cold brew\n\hot dog\n\n").stdout(
+        "cold brew\nhot dog\n\n").stdout(
         "Your total cost is: $8.00\n"
         ).exit(0)
 
