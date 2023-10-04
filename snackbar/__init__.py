@@ -17,9 +17,19 @@ def compiles():
 @check50.check(compiles)
 def test0():
     """input of cold brew and hot dog yields output of $8.00"""
-    check50.run("./snackbar").stdin(
-        "cold brew\nhot dog\n\n").stdout(
+    check50.run("./temps").stdin(
+        "cold brew"
+        ).stdout(
+        "Enter a food item: "
+        ).stdin(
+        "hot dog"
+        ).stdout(
+        "Enter a food item: "
+        ).stdin(
+        ""
+        ).stdout(
         "Your total cost is: $8.00\n"
         ).exit(0)
+
 
 
