@@ -14,22 +14,16 @@ def compiles():
     check50.c.compile("snackbar.c", lcs50=True)
 
 
-@check50.check(compiles)
-def test0():
-    """input of cold brew and hot dog yields output of $8.00"""
-    check50.run("./temps").stdin(
-        "cold brew"
-        ).stdout(
-        "Enter a food item: "
-        ).stdin(
-        "hot dog"
-        ).stdout(
-        "Enter a food item: "
-        ).stdin(
-        ""
-        ).stdout(
-        "Your total cost is: $8.00\n"
-        ).exit(0)
+
+@check50.check(test_EOF)
+def test_0():
+    """input of \"cold brew\", and \"hot dog\" results in $8.00"""
+    items = ["cold brew", "hot dog"]
+    output = 8.0
+    check50.run("python3 taqueria.py"
+    ).stdin(items[0], prompt=True
+    ).stdin(items[1], prompt=True
+    ).stdout(regex(f"{output:.2f}"), f"${output:.2f}", regex=True).kill()
 
 
 
