@@ -22,7 +22,7 @@ def test_0():
     check50.run("./snackbar"
     ).stdin(items[0], prompt=True
     ).stdin(items[1], prompt=True
-           ).sdin("", prompt=True
+    ).stdin("", prompt=True
     ).stdout(regex(f"{output:.2f}"), f"${output:.2f}", regex=True).kill()
 
 
