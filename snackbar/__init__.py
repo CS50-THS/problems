@@ -25,6 +25,18 @@ def test_0():
     ).stdin("", prompt=True
     ).stdout(regex(f"{output:.2f}"), f"${output:.2f}", regex=True).kill()
 
+@check50.check(compiles)
+def test_1():
+    """input of \"burger\", \"fries\", and \"soda\" results in $16.50"""
+    items = ["burger", "fries", "soda"]
+    output = 16.5
+    check50.run("./snackbar"
+    ).stdin(items[0], prompt=True
+    ).stdin(items[1], prompt=True
+    ).stdin(items[2], prompt=True
+    ).stdin("", prompt=True
+    ).stdout(regex(f"{output:.2f}"), f"${output:.2f}", regex=True).kill()
+
 
 def regex(cost):
     """match case-insensitively with dollar-sign required and only characters on either side"""
