@@ -1,5 +1,6 @@
 import check50
 import check50.c
+from re import escape
 
 
 @check50.check()
@@ -23,5 +24,9 @@ def test_0():
     ).stdin(items[1], prompt=True
     ).stdout(regex(f"{output:.2f}"), f"${output:.2f}", regex=True).kill()
 
+
+def regex(cost):
+    """match case-insensitively with dollar-sign required and only characters on either side"""
+    return fr'(?i)^[\D]*\${escape(cost)}[\D]*$'
 
 
